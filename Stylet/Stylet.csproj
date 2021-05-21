@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
+<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -27,6 +27,8 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedAllSources>true</EmbedAllSources>
     <DebugType>portable</DebugType>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>signature.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'net45'">
@@ -38,6 +40,7 @@
     <None Remove="**\*.cs" />
 
     <None Include="Settings.StyleCop" />
+    <None Include="signature.snk" />
     <None Include="Stylet.ruleset" />
     <None Include="..\StyletIcon.png" Pack="true" PackagePath="\" />
     <None Include="..\NuGet\readme.txt" Pack="true" PackagePath="." />
